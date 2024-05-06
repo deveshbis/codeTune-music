@@ -1,9 +1,18 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 
 const Login = () => {
+
+    const { signInUser } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state || '/';
+
     const {
         register,
         handleSubmit,
